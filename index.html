@@ -1,24 +1,36 @@
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>Form Đăng Nhập</title>
+    <script>
+        function validateLoginForm() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('txtmatkhau').value;
+            
+            if (username === "admin" && password === "admin") {
+                // Chuyển hướng đến trang đăng nhập thành công
+                window.location.href = 'success.html'; // Thay 'success.html' bằng URL của trang đăng nhập thành công
+                return false; // Tránh gửi form
+            } else {
+                alert("Tên đăng nhập hoặc mật khẩu không chính xác!");
+                return false; // Giữ người dùng ở trang đăng nhập
+            }
+        }
+    </script>
 </head>
 <body>
     <h2>Form Đăng Nhập</h2>
     <form onsubmit="return validateLoginForm()">
         <div>
-            <label for="username">tên đăng nhập: </label>
+            <label for="username">Tên đăng nhập:</label>
             <input type="text" id="username" name="username" required>
         </div>
-        
         <div>
-
-            <label for="mật khẩu">mật khẩu :</label>
-            <input type="mật khẩu" id="txtpassword" name="txtpassword" required>
+            <label for="txtmatkhau">Mật khẩu:</label>
+            <input type="password" id="txtmatkhau" name="txtmatkhau" required>
         </div>
         <div>
-            <button type="submit">Đăng Nhập</button>
+            <button type="submit">Đăng nhập</button>
         </div>
     </form>
 </body>
